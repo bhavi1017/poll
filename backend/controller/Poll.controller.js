@@ -40,6 +40,18 @@ pollController.fetchPoll = async (req, res, next) => {
   }
 };
 
+pollController.vote = async (req, res, next) => {
+  try {
+    console.log(req.params._id);
+    await pollModel.findByIdAndUpdate(req.params._id, {
+      //pollTitle: req.body.pollTitle,
+      options: req.body.options,
+    });
+    res.status(200).json("Success");
+  } catch (err) {
+    next(err);
+  }
+};
 // pollController.vote = async (req, res, next) => {
 //   try {
 //     await pollModel.findByIdAndUpdate(req.params._id, {});
