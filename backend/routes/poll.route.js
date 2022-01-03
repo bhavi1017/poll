@@ -7,6 +7,7 @@ const { pollController } = require("../controller/Poll.controller");
 pollRouter.get("/fetchPolls", pollController.fetchPolls);
 pollRouter.get("/fetchPoll/:_id", pollController.fetchPoll);
 pollRouter.post("/create", pollController.create);
+pollRouter.post("/vote/:_id", pollController.vote);
 
 // todoRouter.post("/", TodoController.create);
 // todoRouter.get("/:id", TodoController.show);
